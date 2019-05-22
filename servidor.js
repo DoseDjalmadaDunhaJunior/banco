@@ -45,23 +45,36 @@ app.post("/cadastra", function(req, resp){
     resp.render("mensagem", {mensagem: msg});
 });
 
-app.get("/buscar", function(req, resp){
-
-	produtoModel.collection.distinct("dbmarca", function(error, results){
-		if(results.length == 0 )
-			resp.render("mensagem", {mensagem: "Nenhum produto encontrado!"})
-		else
-			resp.render("Busca", {produtos: results});
-	});
-});
-
 app.get("/mongo", function (req,resp) {
     produtoModel.collection.distinct("produtos", function(error, results) {
-        resp.render("mongo",{produtos: results})
+        if (results.length == 0)
+            resp.render("mensagem", {mensagem: "Nenhum produto encontrado!"})
+        else
+            resp.render("mongo", {produtos: results});
     });
 });
 
 app.post("/mongo", function (req,resp){
+    var prod = req.body.marca;
+    produtoModel.find({ dbmarca: prod}, function(err, objs){
+        console.log(objs.length)
+        if(objs.length == 0){
+            resp.render("mensagem", {mensagem: "Nenhum produto encontrado!"})
+        }
+        else
+        {
+            resp.render("listagem", {produtos: objs});
+        }
+    });
+});
+
+app.get("/sql", function (req,resp) {
+    produtoModel.collection.distinct("produtos", function(error, results) {
+        resp.render("sql",{produtos: results})
+    });
+});
+
+app.post("/sql", function (req,resp){
     produtoModel.collection.distinct("produto", function(error, results) {
         console.log(results.length)
         if(objs.length == 0){
@@ -70,7 +83,16 @@ app.post("/mongo", function (req,resp){
         else{
             resp.render("listagem", {produtos: results});
         }
-        resp.render("listagem", {produtos: results})
+    });
+});
+
+app.get("/buscar", function(req, resp){
+
+    produtoModel.collection.distinct("dbmarca", function(error, results){
+        if(results.length == 0)
+            resp.render("mensagem", {mensagem: "Nenhum produto encontrado!"})
+        else
+            resp.render("Busca", {produtos: results});
     });
 });
 
