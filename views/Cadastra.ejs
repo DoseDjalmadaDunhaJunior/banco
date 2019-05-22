@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Cadastro</h1>
+<img src="produtos.jpeg" height="200">
+<ul>
+    <li>
+        <a href="/cadastra">Cadastra Produtos</a>
+    </li>
+    <li>
+        <a href="/buscar">Busca Produtos por Marca</a>
+    </li>
+	<li>
+        <a href="/deleta">Deletar Produtos por Nome</a>
+    </li>
+</ul>
+
+<form action="/cadastra" method="post">
+    <table>
+    <tr>
+        <td>Produto:</td><td><input type="text" name="nome"></td>
+    </tr>
+    <tr>
+        <td>Marca:</td><td><input type="text" name="marca"></td>
+    </tr>
+    <tr>
+        <td>Quantidade:</td><td><input type="text" name="quantidade"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" name="envia" value="Enviar"></td>
+    </tr>
+    </table>
+</form>
+
+</body>
+</html>
