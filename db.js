@@ -18,17 +18,20 @@ mongoose.model('funcionario',funcionarioSchema);
 module.exports={Mongoose:mongoose, funcionarioSchema:funcionarioSchema}
 
 
-const producaoSchema = new Schema({
+var producaoSchema = new Schema({
+
   data: { type: String},
-  bolsa_couro_velcro: { type: Number },
-  bolsa_couro_zipper: { type: Number },
-  bolsa_pano_velcro: { type: Number },
-  bolsa_pano_zipper: { type: Number },
+  bolsa_de_couro_velcro: { type: Number },
+  bolsa_de_couro_zipper: { type: Number },
+  bolsa_de_pano_velcro: { type: Number },
+  bolsa_de_pano_zipper: { type: Number },
 },{collection: 'producao'});
 mongoose.model('producao',producaoSchema);
 module.exports = {Mongoose:mongoose, producaoSchema:producaoSchema}
 
-const estoqueSchema = new Schema({
+
+
+var estoqueSchema = new Schema({
   data: { type: String},
   zipper: {type: Number},
   velcro: {type: Number},

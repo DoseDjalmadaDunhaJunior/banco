@@ -2,10 +2,10 @@
 <html lang="en">
 <head></head>
 <body>
- <h1 class="text-center title-1"> Lista de Usu&aacute;rios </h1>
+ <h1 class="text-center title-1"> Funcionarios </h1>
  <ul>
  <% userlist.forEach(function(user){ %>
- <li><a href="mailto:<%= user.email %>"><%= user.id %> <%=user.nome%> <%=user.cpf%> <%=user.data_de_contratacao%> <%=user.salario%> /a></li>
+ <li><%= user.id %> : <%=user.nome%> : <%=user.data_de_contratacao%></li>
  <%})%>
  </ul>
 </body>

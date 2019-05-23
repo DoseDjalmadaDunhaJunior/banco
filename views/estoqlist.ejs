@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+<body>
+ <h1 class="text-center title-1"> Estoque</h1>
+ <ul>
+ <% estoqlist.forEach(function(estoq){ %>
+ <li><%= estoq.data %> : <%=estoq.tiras_de_pano%> : <%= estoq.tiras_de_couro%></li>
+ <%})%>
+ </ul>
+</body>
+</html>
