@@ -28,8 +28,6 @@ const producaoSchema = new Schema({
 mongoose.model('producao',producaoSchema);
 module.exports = {Mongoose:mongoose, producaoSchema:producaoSchema}
 
-
-
 const estoqueSchema = new Schema({
   data: { type: String},
   zipper: {type: Number},
